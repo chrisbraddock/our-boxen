@@ -1,52 +1,65 @@
 class people::chrisbraddock {
 
+  # authentication / security
+  include lastpass
+
+  # browsers
   include chrome::dev
   include chrome::canary
-  include lastpass
-  include webstorm
-  include iterm2::dev
-  include javaosx
-  include tower
-  include dropbox
 
-  include mysql
-#  mysql::db {
-#    'wharto'
-#  }
-
-  include picasa
-  include handbrake
-  include divvy
-  include kindle
-  include googledrive
-  include imageoptim
-  include clipmenu
-  include teamviewer
-  include xscope
-  include heroku
-  include textexpander
-  include selfcontrol
+  # communication
   include linkinus
-  include vlc
-  include adobe_reader
-  include wget
-  include transmission
-  include marked2
-  include better_touch_tools
   include skype
-  include cloudapp
-  include silverlight
-  include virtualbox
-  include dash
-  include appcleaner
-  include atom
 
+  # dev
+  include dash
+  include heroku
+  include imageoptim
+  include mysql
+  #mysql::db {
+  #  'wharto'
+  #}
+  include tower
+  include webstorm
+  include xscope
+  include javaosx
+
+  # files, filesystem
+  include dropbox
+  include googledrive
+
+  # multimedia
+  include adobe_reader
+  include handbrake
+  include kindle
+  include marked2
+  include picasa
+  include silverlight
+  include vlc
+
+  # utility
+  include appcleaner
+  include better_touch_tools
+  include clipmenu
+  include cloudapp
+  include divvy
+  include istatmenus4
+  include iterm2::dev
+  include selfcontrol
+  include teamviewer
+  include textexpander
+  include transmission
+  include virtualbox
+  include wget
+
+  # OSX
+  osx::recovery_message { 'If this Mac is found, please call 610-283-2949': }
   include osx::global::expand_save_dialog
   include osx::dock::dim_hidden_apps
   include osx::finder::enable_quicklook_text_selection
   include osx::disable_app_quarantine
   include osx::no_network_dsstores
-  #include osx::software_update
+  include osx::software_update
   include osx::global::key_repeat_delay
   include osx::global::key_repeat_rate
   class { 'osx::dock::position':
