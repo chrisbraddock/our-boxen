@@ -254,6 +254,11 @@ GITHUBTARBALL
     puppet-javaosx (1.1.12)
 
 GITHUBTARBALL
+  remote: chrisbraddock/puppet-osx-powermgmt
+  specs:
+    osx-powermgmt (0.0.1)
+
+GITHUBTARBALL
   remote: chrisbraddock/puppet-tower
   specs:
     tower (1.0.3)
@@ -319,6 +324,7 @@ DEPENDENCIES
   nodejs (= 3.8.1)
   openssl (= 1.0.0)
   osx (= 2.7.1)
+  osx-powermgmt (= 0.0.1)
   phantomjs (= 2.3.0)
   picasa (= 1.0.0)
   pkgconfig (= 1.0.0)
