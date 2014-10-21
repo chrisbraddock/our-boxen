@@ -11,6 +11,7 @@ class people::chrisbraddock {
   include people::chrisbraddock::osx
   include people::chrisbraddock::osxsystem
   include people::chrisbraddock::osxpowermgmt
+  include people::chrisbraddock::apps
 
   $home     = "/Users/${::boxen_user}"
   $my       = "${home}/my"
