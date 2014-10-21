@@ -24,7 +24,7 @@
 # Restart automatically if the computer freezes
 #systemsetup -setrestartfreeze on
 
-
+# @todo Yosemite auto updates on
 class people::chrisbraddock::osx {
 
   include osx::software_update
