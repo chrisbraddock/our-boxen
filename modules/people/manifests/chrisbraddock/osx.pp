@@ -1,33 +1,18 @@
-
-# OSX (check here https://github.com/justgook/dotfiles/blob/master/.osx)
-#osx::recovery_message { 'If this Mac is found, please call 610-283-2949': }
-#include osx::global::expand_save_dialog
-#include osx::dock::dim_hidden_apps
-#include osx::finder::enable_quicklook_text_selection
-#include osx::disable_app_quarantine
-#include osx::no_network_dsstores
-#include osx::global::key_repeat_delay
-#include osx::global::key_repeat_rate
-#class { 'osx::dock::position':
-#  position => 'left'
-#}
-
-# Expand save panel by default
-#defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
-
-# Automatically quit printer app once the print jobs complete
-#defaults write com.apple.print.PrintingPrefs "Quit When Finished" -bool true
-
-# Disable the crash reporter
-#defaults write com.apple.CrashReporter DialogType -string "none"
-
-# Restart automatically if the computer freezes
-#systemsetup -setrestartfreeze on
-
-# @todo Yosemite auto updates on
+# @todo combine and/or re-organize the 'osx*.pp' files
+# references:
+#   https://github.com/justgook/dotfiles/blob/master/.osx
 class people::chrisbraddock::osx {
 
+  # @todo Restart automatically if the computer freezes
+  #systemsetup -setrestartfreeze on
+
+  # @todo Yosemite auto updates on
+
+  osx::recovery_message { 'If this Mac is found, please call 610-283-2949': }
+
   include osx::software_update
+  include osx::dock::dim_hidden_apps
+  include osx::finder::enable_quicklook_text_selection
 
   class { 'osx::dock::hot_corners':
     bottom_left => "Start Screen Saver"
@@ -88,7 +73,7 @@ class people::chrisbraddock::osx {
     value  => 'false',
   }
 
-  boxen::osx_defaults { 'Align the Dock Bottom':
+  boxen::osx_defaults { 'Align the Dock Left':
     ensure     => present,
     user       => $::luser,
     domain     => 'com.apple.dock',
@@ -148,18 +133,6 @@ class people::chrisbraddock::osx {
     key    => 'mcx-disabled',
     domain => 'com.apple.dashboard',
     value  => 'YES'
-  }
-
-  boxen::osx_defaults { 'Expand save panel by default':
-    key    => 'NSNavPanelExpandedStateForSaveMode',
-    domain => 'NSGlobalDomain',
-    value  => 'true'
-  }
-
-  boxen::osx_defaults { 'Expand print panel by default':
-    key    => 'PMPrintingExpandedStateForPrint',
-    domain => 'NSGlobalDomain',
-    value  => 'true'
   }
 
   boxen::osx_defaults { 'Avoid creating .DS_Store files on network volumes':
