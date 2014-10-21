@@ -1,3 +1,4 @@
+
 # OSX (check here https://github.com/justgook/dotfiles/blob/master/.osx)
 #osx::recovery_message { 'If this Mac is found, please call 610-283-2949': }
 #include osx::global::expand_save_dialog
@@ -5,15 +6,11 @@
 #include osx::finder::enable_quicklook_text_selection
 #include osx::disable_app_quarantine
 #include osx::no_network_dsstores
-#include osx::software_update
 #include osx::global::key_repeat_delay
 #include osx::global::key_repeat_rate
 #class { 'osx::dock::position':
 #  position => 'left'
 #}
-class { 'osx::dock::hot_corners':
-  bottom_left => "Start Screen Saver"
-}
 
 # Expand save panel by default
 #defaults write NSGlobalDomain NSNavPanelExpandedStateForSaveMode -bool true
@@ -29,6 +26,13 @@ class { 'osx::dock::hot_corners':
 
 
 class people::chrisbraddock::osx {
+
+  include osx::software_update
+
+  class { 'osx::dock::hot_corners':
+    bottom_left => "Start Screen Saver"
+  }
+
   boxen::osx_defaults { 'Disable press-and-hold character picker':
     key    => 'ApplePressAndHoldEnabled',
     domain => 'NSGlobalDomain',
