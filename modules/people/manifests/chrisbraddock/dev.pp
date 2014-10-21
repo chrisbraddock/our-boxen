@@ -4,7 +4,7 @@ class people::chrisbraddock::dev {
   include imageoptim
   include mysql
   #mysql::db {
-  #  'goalkeeper'
+  #  'mydatabase'
   #}
   include tower
   include webstorm
