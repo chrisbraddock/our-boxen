@@ -9,6 +9,7 @@ class people::chrisbraddock {
   include people::chrisbraddock::multimedia
   include people::chrisbraddock::utility
   include people::chrisbraddock::osx
+  include people::chrisbraddock::osxsystem
   include people::chrisbraddock::osxpowermgmt
 
   $home     = "/Users/${::boxen_user}"
