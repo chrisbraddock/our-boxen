@@ -1,6 +1,8 @@
 # Set up the execution environment. Load this file before trying to do
 # anything else. This file assumes that the repo's been bootstrapped.
 
+ENV['BOXEN_SRC_DIR'] = "/Users/${::boxen_user}"
+
 require "pathname"
 
 # Make sure we're in the repo's root directory.
