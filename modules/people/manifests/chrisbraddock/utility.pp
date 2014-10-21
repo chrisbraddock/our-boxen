@@ -4,7 +4,7 @@ class people::chrisbraddock::utility {
   include clipmenu
   include cloudapp
   include divvy
-  include istatmenus4
+  #include istatmenus4
   include iterm2::dev
   include selfcontrol
   include teamviewer
